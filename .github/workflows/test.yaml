@@ -17,6 +17,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install pytest
+          pip install pytest ruff
       - name: Test
         run: pytest
+      - name: Lint
+        run: ruff check --output-format=github
