@@ -8,7 +8,7 @@ from lib.paths import *
 env_mac_key = re.compile("^sops_mac=")
 
 
-def check_env(path):
+def check_env(path: str) -> bool:
     with open(path) as file:
         for line in file:
             if env_mac_key.search(line):
@@ -17,7 +17,7 @@ def check_env(path):
     return False
 
 
-def check_secret(path):
+def check_secret(path: str) -> bool:
     with open(path) as file:
         for doc in yaml.safe_load_all(file):
             if "kind" not in doc or doc["kind"] != "Secret":

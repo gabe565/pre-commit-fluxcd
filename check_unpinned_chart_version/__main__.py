@@ -5,7 +5,7 @@ from os.path import abspath
 from lib.paths import *
 
 
-def check_helm_release(path):
+def check_helm_release(path: str) -> bool:
     with open(path) as file:
         try:
             for doc in yaml.safe_load_all(file):
