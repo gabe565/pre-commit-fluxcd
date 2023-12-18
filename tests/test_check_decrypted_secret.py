@@ -2,7 +2,14 @@ from pathlib import Path
 
 import pytest
 from check_decrypted_secret.__main__ import check_env, check_secret
-from .check_decrypted_secret_data import *
+from .check_decrypted_secret_data import (
+    ENV_VALID,
+    ENV_INVALID,
+    DATA_VALID,
+    DATA_INVALID,
+    STRINGDATA_VALID,
+    STRINGDATA_INVALID,
+)
 
 
 @pytest.mark.parametrize(
