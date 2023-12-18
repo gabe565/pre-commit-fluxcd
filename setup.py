@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pre-commit-gitops",
-    version="0.0.1",
+    version="0.0.2",
     description="Pre-Commit hooks for GitOps repos",
     long_description=long_description,
     long_description_content_type="text/markdown",
