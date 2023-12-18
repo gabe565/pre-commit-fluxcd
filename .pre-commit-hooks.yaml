@@ -1,0 +1,13 @@
+- id: check-unpinned-chart-version
+  name: Check for unpinned chart versions
+  entry: python3 -m check_unpinned_chart_version
+  language: python
+  types:
+    - yaml
+- id: check-decrypted-secret
+  name: Check for decrypted secrets
+  entry: python3 -m check_decrypted_secret
+  language: python
+  types_or:
+    - dotenv
+    - yaml
