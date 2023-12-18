@@ -25,9 +25,8 @@ def main():
     success = True
     for path in argv_or_glob(glob_yaml):
         success = check_helm_release(path) and success
-    if not success:
-        exit(1)
+    return 0 if success else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
