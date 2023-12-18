@@ -9,7 +9,7 @@ setuptools.setup(
     description="Pre-Commit hooks for GitOps repos",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/gabe565/pre-commit-gitops",
+    url="https://github.com/gabe565/pre-commit-fluxcd",
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
