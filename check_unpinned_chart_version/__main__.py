@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+import sys
 import yaml
 from os.path import abspath
-from lib.paths import *
+from lib.paths import argv_or_glob, glob_yaml
 
 
 def check_helm_release(path: str) -> bool:

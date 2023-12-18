@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 from check_unpinned_chart_version.__main__ import check_helm_release
-from .check_unpinned_chart_version_data import *
+from .check_unpinned_chart_version_data import HELMRELEASE_VALID, HELMRELEASE_INVALID
 
 
 @pytest.mark.parametrize(
