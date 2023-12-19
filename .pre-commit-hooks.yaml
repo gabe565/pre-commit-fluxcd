@@ -11,3 +11,9 @@
   types_or:
     - dotenv
     - yaml
+- id: check-renovate
+  name: Check for Renovate support
+  entry: python3 -m check_renovate
+  language: python
+  types:
+    - yaml
