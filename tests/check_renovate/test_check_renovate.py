@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 from check_renovate.__main__ import check_helm_release, check_helm_repository
-from .check_renovate_data import (
+from .data import (
     HELM_RELEASE_METADATA_VALID,
     HELM_RELEASE_SOURCE_REF_VALID,
     HELM_RELEASE_INVALID,
