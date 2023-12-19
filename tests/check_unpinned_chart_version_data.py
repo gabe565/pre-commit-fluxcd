@@ -1,4 +1,4 @@
-HELMRELEASE_VALID = """
+HELM_RELEASE_VALID = """
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -14,7 +14,7 @@ spec:
         name: example
 """
 
-HELMRELEASE_INVALID = """
+HELM_RELEASE_INVALID = """
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:

@@ -52,7 +52,7 @@ sops:
     version: 3.8.1
 """
 
-STRINGDATA_INVALID = """
+STRING_DATA_INVALID = """
 apiVersion: v1
 kind: Secret
 type: Opaque
@@ -62,7 +62,7 @@ stringData:
   value: unencrypted
 """
 
-STRINGDATA_VALID = """
+STRING_DATA_VALID = """
 apiVersion: v1
 kind: Secret
 type: Opaque
