@@ -9,7 +9,7 @@ Add the following snippet to `.pre-commit-config.yaml`.
 ```yaml
 hooks:
   - repo: https://github.com/gabe565/pre-commit-gitops
-    rev: v0.0.1
+    rev: v0.1.0
     hooks:
       - id: check-decrypted-secret
       - id: check-unpinned-chart-version
