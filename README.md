@@ -13,6 +13,7 @@ hooks:
     hooks:
       - id: check-decrypted-secret
       - id: check-unpinned-chart-version
+      - id: check-renovate
 ```
 
 ## Hooks
@@ -24,3 +25,11 @@ This hook ensures `.env` files, and that Kubernetes manifests with kind of `Secr
 ### `check-unpinned-chart-version`
 
 This hook ensures Kubernetes manifests with kind of `HelmRelease` have a version pinned at `.spec.chart.spec.version`.
+
+### `check-renovate`
+
+[Renovate](https://docs.renovatebot.com/) will only update `HelmRelease` versions if [the following conditions are satisfied](https://docs.renovatebot.com/modules/manager/flux/#helmrelease-support):
+- The `HelmRelease` resource has `metadata.namespace` or `spec.chart.spec.sourceRef.namespace` set
+- The referenced `HelmRepository` has `metadata.namespace` set.
+
+This hook ensures these conditions are satisfied.
