@@ -1,19 +1,19 @@
-- id: check-unpinned-chart-version
+- id: check-charts-pinned
   name: Check for unpinned chart versions
-  entry: python3 -m check_unpinned_chart_version
+  entry: python3 -m check_charts_pinned
   language: python
   types:
     - yaml
-- id: check-decrypted-secret
+- id: check-secrets-encrypted
   name: Check for decrypted secrets
-  entry: python3 -m check_decrypted_secret
+  entry: python3 -m check_secrets_encrypted
   language: python
   types_or:
     - dotenv
     - yaml
-- id: check-renovate
-  name: Check for Renovate support
-  entry: python3 -m check_renovate
+- id: check-charts-support-renovate
+  name: Check for chart Renovate support
+  entry: python3 -m check_charts_support_renovate
   language: python
   types:
     - yaml

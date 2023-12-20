@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from check_decrypted_secret.__main__ import check_env, check_secret
+from check_secrets_encrypted.__main__ import check_env, check_secret
 from .data import (
     ENV_VALID,
     ENV_INVALID,

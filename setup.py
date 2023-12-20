@@ -13,9 +13,9 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "pre-commit-check-decrypted-secret = check_decrypted_secret.__main__:main",
-            "pre-commit-check-unpinned-chart-version = check_unpinned_chart_version.__main__:main",
-            "pre-commit-check-renovate = check_renovate.__main__:main",
+            "pre-commit-check-secrets-encrypted = check_secrets_encrypted.__main__:main",
+            "pre-commit-check-charts-pinned = check_charts_pinned.__main__:main",
+            "pre-commit-check-charts-support-renovate = check_charts_support_renovate.__main__:main",
         ]
     },
     install_requires=[
