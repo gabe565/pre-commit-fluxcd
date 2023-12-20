@@ -3,6 +3,8 @@
 import sys
 import yaml
 from os.path import abspath
+
+from lib.kubernetes import is_helm_release
 from lib.paths import argv_or_glob, glob_yaml
 
 
@@ -10,7 +12,7 @@ def check_helm_release(path: str) -> bool:
     with open(path) as file:
         try:
             for doc in yaml.safe_load_all(file):
-                if "kind" not in doc or doc["kind"] != "HelmRelease":
+                if not is_helm_release(doc):
                     continue
                 if "version" not in doc["spec"]["chart"]["spec"]:
                     print(f"HelmRelease missing version: {abspath(path)}")

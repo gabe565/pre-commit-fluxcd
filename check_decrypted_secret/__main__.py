@@ -4,6 +4,8 @@ import sys
 import re
 import yaml
 from os.path import abspath
+
+from lib.kubernetes import is_secret
 from lib.paths import argv_or_glob, glob_env, glob_yaml
 
 env_mac_key = re.compile("^sops_mac=")
@@ -21,7 +23,7 @@ def check_env(path: str) -> bool:
 def check_secret(path: str) -> bool:
     with open(path) as file:
         for doc in yaml.safe_load_all(file):
-            if "kind" not in doc or doc["kind"] != "Secret":
+            if not is_secret(doc):
                 continue
             if "stringData" not in doc and "data" not in doc:
                 continue

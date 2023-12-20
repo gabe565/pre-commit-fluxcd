@@ -3,13 +3,15 @@
 import sys
 import yaml
 from os.path import abspath
+
+from lib.kubernetes import is_helm_release, is_helm_repository
 from lib.paths import argv_or_glob, glob_yaml
 
 
 def check_helm_release(path: str) -> bool:
     with open(path) as file:
         for doc in yaml.safe_load_all(file):
-            if "kind" not in doc or doc["kind"] != "HelmRelease":
+            if not is_helm_release(doc):
                 continue
             if "namespace" in doc["metadata"]:
                 continue
@@ -28,7 +30,7 @@ def check_helm_release(path: str) -> bool:
 def check_helm_repository(path: str) -> bool:
     with open(path) as file:
         for doc in yaml.safe_load_all(file):
-            if "kind" not in doc or doc["kind"] != "HelmRepository":
+            if not is_helm_repository(doc):
                 continue
             if "namespace" in doc["metadata"]:
                 continue
