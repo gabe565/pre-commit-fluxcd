@@ -16,26 +16,16 @@ build-backend = "hatchling.build"
 source = "vcs"
 
 [tool.hatch.build.targets.sdist]
-include = [
-    "/check_charts_pinned",
-    "/check_charts_support_renovate",
-    "/check_secrets_encrypted",
-    "/lib",
-]
+include = ["src"]
 
 [tool.hatch.build.targets.wheel]
-packages = [
-    "check_charts_pinned",
-    "check_charts_support_renovate",
-    "check_secrets_encrypted",
-    "lib",
-]
+packages = ["src"]
 
 [project.urls]
 Repository = "https://github.com/gabe565/pre-commit-fluxcd.git"
 Issues = "https://github.com/gabe565/pre-commit-fluxcd/issues"
 
 [project.scripts]
-pre-commit-check-secrets-encrypted = "check_secrets_encrypted.__main__:main"
-pre-commit-check-charts-pinned = "check_charts_pinned.__main__:main"
-pre-commit-check-charts-support-renovate = "check_charts_support_renovate.__main__:main"
+pre-commit-check-secrets-encrypted = "src.check_secrets_encrypted.__main__:main"
+pre-commit-check-charts-pinned = "src.check_charts_pinned.__main__:main"
+pre-commit-check-charts-support-renovate = "src.check_charts_support_renovate.__main__:main"

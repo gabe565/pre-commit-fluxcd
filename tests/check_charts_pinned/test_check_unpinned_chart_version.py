@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from check_charts_pinned.__main__ import check_helm_release
+from src.check_charts_pinned.__main__ import check_helm_release
 from .data import HELM_RELEASE_VALID, HELM_RELEASE_INVALID
 
 

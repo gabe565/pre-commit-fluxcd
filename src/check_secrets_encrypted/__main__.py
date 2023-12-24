@@ -5,8 +5,8 @@ import re
 import yaml
 from os.path import abspath
 
-from lib.kubernetes import is_secret
-from lib.paths import argv_or_glob, glob_env, glob_yaml
+from src.lib.kubernetes import is_secret
+from src.lib.paths import argv_or_glob, glob_env, glob_yaml
 
 env_mac_key = re.compile("^sops_mac=")
 

@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import pytest
-from check_charts_support_renovate.__main__ import (
+from src.check_charts_support_renovate.__main__ import (
     check_helm_release,
     check_helm_repository,
 )

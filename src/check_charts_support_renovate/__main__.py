@@ -4,8 +4,8 @@ import sys
 import yaml
 from os.path import abspath
 
-from lib.kubernetes import is_helm_release, is_helm_repository
-from lib.paths import argv_or_glob, glob_yaml
+from src.lib.kubernetes import is_helm_release, is_helm_repository
+from src.lib.paths import argv_or_glob, glob_yaml
 
 
 def check_helm_release(path: str) -> bool:
