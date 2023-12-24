@@ -1,0 +1,41 @@
+[project]
+name = "pre-commit-fluxcd"
+description = "Pre-Commit hooks for FluxCD GitOps repos"
+dynamic = ["version"]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["pre-commit", "gitops", "fluxcd"]
+requires-python = ">= 3.8"
+dependencies = ["pyyaml==6.*"]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/check_charts_pinned",
+    "/check_charts_support_renovate",
+    "/check_secrets_encrypted",
+    "/lib",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "check_charts_pinned",
+    "check_charts_support_renovate",
+    "check_secrets_encrypted",
+    "lib",
+]
+
+[project.urls]
+Repository = "https://github.com/gabe565/pre-commit-fluxcd.git"
+Issues = "https://github.com/gabe565/pre-commit-fluxcd/issues"
+
+[project.scripts]
+pre-commit-check-secrets-encrypted = "check_secrets_encrypted.__main__:main"
+pre-commit-check-charts-pinned = "check_charts_pinned.__main__:main"
+pre-commit-check-charts-support-renovate = "check_charts_support_renovate.__main__:main"
