@@ -13,7 +13,7 @@ def find_repo_root():
     while not os.path.isdir(os.path.join(path, want)):
         path = os.path.join(path, "../hack")
         if os.path.abspath(path) == "/":
-            raise Exception(f"Could not find dir: {want}")
+            raise FileNotFoundError(f"Could not find dir: {want}")
     return os.path.abspath(path)
 
 
