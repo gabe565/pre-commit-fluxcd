@@ -13,6 +13,7 @@ hooks:
     hooks:
       - id: check-charts-pinned
       - id: check-charts-support-renovate
+      - id: check-drift-detection-enabled
       - id: check-secrets-encrypted
 ```
 
@@ -27,6 +28,17 @@ This hook ensures `HelmRelease` Kubernetes manifests have a version pinned at `.
 - The referenced `HelmRepository` has `metadata.namespace` set.
 
 This hook ensures these conditions are satisfied.
+
+### `check-drift-detection-enabled`
+
+This hook ensures `HelmRelease` manifests have [drift detection](https://fluxcd.io/flux/components/helm/helmreleases/#drift-detection) enabled.
+
+If you would like to allow `warn` mode, add the `--allow-warn` arg:
+```yaml
+- id: check-secrets-encrypted
+  args:
+    - --allow-warn
+```
 
 ### `check-secrets-encrypted`
 This hook ensures `.env` files, and `Secret` Kubernetes manifests are encrypted using [SOPS](https://github.com/getsops/sops).

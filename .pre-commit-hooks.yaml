@@ -17,3 +17,9 @@
   language: python
   types:
     - yaml
+- id: check-drift-detection-enabled
+  name: Check for drift detection
+  entry: pre-commit-check-drift-detection-enabled
+  language: python
+  types:
+    - yaml
