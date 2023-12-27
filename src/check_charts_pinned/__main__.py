@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-
+import argparse
 import sys
 import yaml
 from os.path import abspath
 
 from src.lib.kubernetes import is_helm_release
-from src.lib.paths import argv_or_glob, glob_yaml
 
 
 def check_helm_release(path: str) -> bool:
@@ -25,9 +24,17 @@ def check_helm_release(path: str) -> bool:
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("files", nargs="*")
+    args = parser.parse_args()
+
     success = True
-    for path in argv_or_glob(glob_yaml):
-        success = check_helm_release(path) and success
+    for path in args.files:
+        if path.endswith(".yaml") or path.endswith(".yml"):
+            success = check_helm_release(path) and success
+        else:
+            print(f"Unknown file type: {abspath(path)}")
+            success = False
     return 0 if success else 1
 
 
