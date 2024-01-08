@@ -39,7 +39,7 @@ This hook ensures `HelmRelease` manifests have [drift detection](https://fluxcd.
 
 If you would like to allow `warn` mode, add the `--allow-warn` arg:
 ```yaml
-- id: check-secrets-encrypted
+- id: check-drift-detection-enabled
   args:
     - --allow-warn
 ```
