@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: example
+data:
+  value: dW5lbmNyeXB0ZWQ=

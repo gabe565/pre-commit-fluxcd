@@ -3,22 +3,31 @@ name: Test
 on: push
 
 jobs:
-  build:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: Lint
+        uses: golangci/golangci-lint-action@v4
+        with:
+          args: --timeout=5m
+
+  test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          python-version: "3.x"
-          cache: pip
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install pytest ruff
+          go-version-file: go.mod
       - name: Test
-        run: pytest
-      - name: Lint
-        run: ruff check --output-format=github
+        run: go test ./...

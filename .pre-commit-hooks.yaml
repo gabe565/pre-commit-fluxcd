@@ -1,25 +1,25 @@
 - id: check-charts-pinned
   name: Check for unpinned chart versions
-  entry: pre-commit-check-charts-pinned
-  language: python
+  entry: pre-commit-fluxcd charts-pinned
+  language: golang
   types:
     - yaml
 - id: check-secrets-encrypted
   name: Check for decrypted secrets
-  entry: pre-commit-check-secrets-encrypted
-  language: python
+  entry: pre-commit-fluxcd secrets-encrypted
+  language: golang
   types_or:
     - dotenv
     - yaml
 - id: check-charts-support-renovate
   name: Check for chart Renovate support
-  entry: pre-commit-check-charts-support-renovate
-  language: python
+  entry: pre-commit-fluxcd charts-support-renovate
+  language: golang
   types:
     - yaml
 - id: check-drift-detection-enabled
   name: Check for drift detection
-  entry: pre-commit-check-drift-detection-enabled
-  language: python
+  entry: pre-commit-fluxcd drift-detection
+  language: golang
   types:
     - yaml
