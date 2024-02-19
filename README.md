@@ -8,7 +8,7 @@ Add the following snippet to `.pre-commit-config.yaml`.
 
 ```yaml
 hooks:
-  - repo: https://github.com/gabe565/pre-commit-gitops
+  - repo: https://github.com/gabe565/pre-commit-fluxcd
     rev: ''  # Use the sha / tag you want to point at
     hooks:
       - id: check-charts-pinned
