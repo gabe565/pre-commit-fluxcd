@@ -1,6 +1,6 @@
 module github.com/gabe565/pre-commit-fluxcd
 
-go 1.22.0
+go 1.20
 
 require (
 	github.com/spf13/cobra v1.8.0
